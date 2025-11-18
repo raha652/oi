@@ -48,8 +48,8 @@
 
     async function loadUsers() {
       try {
-        const stored = localStorage.getItem(usersStorageKey);
-        allUsers = stored ? JSON.parse(stored) : [];
+          const stored = localStorage.getItem(usersStorageKey);
+allUsers = stored && stored !== 'undefined' ? JSON.parse(stored) : [];
         if (allUsers.length === 0) {
           const defaultAdmin = {
             __backendId: generateId(),
@@ -168,4 +168,5 @@
     });
   </script>
 </body>
+
 </html>
