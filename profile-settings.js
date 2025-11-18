@@ -60,7 +60,7 @@ async function updateProfile(event) {
   }
   await saveUsers(allUsers);
   showToast('پروفایل با موفقیت به‌روزرسانی شد', '✅');
-  setTimeout(() => navigateTo('./index.html'), 1500);
+  setTimeout(() => navigateTo('/index.html'), 1500);
 }
 
 function showToast(message, icon = '✅') {
@@ -74,8 +74,11 @@ function showToast(message, icon = '✅') {
   }, 3000);
 }
 
+
+const basePath = '/oi';   // ← این خط خیلی مهمه!
+
 function navigateTo(path) {
-  window.location.href = path;
+  window.location.href = basePath + path;
 }
 
 function logout() {
@@ -130,5 +133,6 @@ async function initProfilePage() {
   updateDateTime();
   setInterval(updateDateTime, 60000);
 }
+
 
 document.addEventListener('DOMContentLoaded', initProfilePage);
